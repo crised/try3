@@ -48,10 +48,8 @@ class AuthorContainer extends Component {
   }
 
   render () {
-    console.log('rendering!!', this.props)
+    // console.log('rendering!!', this.props)
     const { isEditing, author, firstName } = this.props
-    console.log('rendering2!!', isEditing, author, firstName)
-
 
     if (isEditing && !author) {
       return (
@@ -64,10 +62,11 @@ class AuthorContainer extends Component {
       lastName: author.get('lastName'),
       availableIn: author.get('availableIn').toArray()
     } : {}
+    // console.log('rendering3!!', isEditing, author.get('lastName'), firstName)
 
     return (
       <AuthorForm
-        title={firstName} // TODO: Is 'title' the right label?
+        firstName={firstName}
         isEditing={isEditing}
         initialValues={initialValues}
         onSubmit={this.handleSubmit} />
