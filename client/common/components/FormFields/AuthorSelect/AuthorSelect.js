@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Multiselect from '../Multiselect'
 import Loader from 'common/components/Loader'
-import { getAllAuthors } from 'api/authors'
+import {getAllAuthors} from 'api/authors'
 
 export default class AuthorSelect extends Component {
   static propTypes = {
@@ -16,6 +16,11 @@ export default class AuthorSelect extends Component {
 
   loadAuthors () {
     getAllAuthors().then(authors => {
+      var authorList = []
+      for (var i = 0; i < authors.length; i++) {
+        authorList.push(authors[i].firstName + ' ' + authors[i].lastName)
+      }
+      authors = authorList
       this.setState({
         authors,
         isLoaded: true
@@ -27,8 +32,10 @@ export default class AuthorSelect extends Component {
     this.loadAuthors()
   }
 
-  render () {
-    const { isLoaded, authors} = this.state
+  render() {
+    // eslint-disable-next-line standard/object-curly-even-spacing
+    const {isLoaded, authors} = this.state
+    console.log('in AuthorSelect Render', authors)
 
     if (!isLoaded) {
       return (

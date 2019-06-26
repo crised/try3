@@ -16,6 +16,8 @@ export default class CountrySelect extends Component {
 
   loadCountries () {
     getCountries().then(countries => {
+      console.log('getting countries!', countries, typeof countries)
+
       this.setState({
         countries,
         isLoaded: true
