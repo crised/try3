@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import { Input, CountrySelect } from 'common/components/FormFields' // TODO Change CountrySelect
+import { Input} from 'common/components/FormFields'
 import Button from 'common/components/Button'
 import FormGroup from 'common/components/FormGroup'
 import FormLabel from 'common/components/FormLabel'
@@ -31,7 +31,6 @@ export const AuthorForm = ({
   firstName,
   onBlur
 }) => {
-  console.log('author form!', isEditing)
   return (
     <form
       className={styles.component}

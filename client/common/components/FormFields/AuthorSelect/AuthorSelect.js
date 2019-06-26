@@ -32,7 +32,7 @@ export default class AuthorSelect extends Component {
     this.loadAuthors()
   }
 
-  render() {
+  render () {
     // eslint-disable-next-line standard/object-curly-even-spacing
     const {isLoaded, authors} = this.state
     console.log('in AuthorSelect Render', authors)

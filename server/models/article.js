@@ -19,6 +19,10 @@ const ArticleSchema = new Schema({
   availableIn: {
     type: [String],
     default: []
+  },
+  authors: {
+    type: [String],
+    default: []
   }
 })
 

@@ -58,7 +58,8 @@ class ArticleContainer extends Component {
     const initialValues = (isEditing && article) ? {
       title: article.get('title'),
       content: article.get('content'),
-      availableIn: article.get('availableIn').toArray()
+      availableIn: article.get('availableIn').toArray(),
+      authors: article.get('authors').toArray()
     } : {}
 
     return (

@@ -24,7 +24,6 @@ class AuthorContainer extends Component {
     const { isEditing, loadAuthor, params } = this.props
 
     if (isEditing) {
-      console.log('is editing', params.id)
       loadAuthor(params.id)
     }
   }

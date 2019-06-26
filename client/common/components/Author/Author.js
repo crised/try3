@@ -8,7 +8,6 @@ import moment from 'moment'
 
 const Author = ({author}) => {
   const date = moment(author.get('created'))
-  console.log('id', author.get('_id'))
 
   return (
     <div className={styles.component}>

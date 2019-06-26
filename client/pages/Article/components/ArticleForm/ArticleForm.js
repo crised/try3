@@ -63,10 +63,10 @@ export const ArticleForm = ({
       </FormGroup>
       <FormGroup>
         <FormLabel>
-          Author
+          Authors
         </FormLabel>
         <Field
-          name='author'
+          name='authors'
           component={AuthorSelect}
           onBlur={() => onBlur()} />
       </FormGroup>

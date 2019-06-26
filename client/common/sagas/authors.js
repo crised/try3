@@ -19,14 +19,11 @@ function * onLoadAll () {
 }
 
 function * onLoad ({ payload: id }) {
-  console.log('onLoad', id)
   yield put(actions.loadAuthorRequest.start())
 
   try {
     const author = yield call(api.getAuthorById, id)
     const norm = yield call(normalize, author, schemas.author)
-    console.log('onLoad norm', author, norm)
-
     yield put(actions.loadAuthorRequest.success(norm))
   } catch (error) {
     yield put(actions.loadAuthorRequest.failure(error))
