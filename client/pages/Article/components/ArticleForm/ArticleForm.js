@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import { Input, Textarea, CountrySelect } from 'common/components/FormFields'
+import { Input, Textarea, CountrySelect, AuthorSelect } from 'common/components/FormFields'
 import Button from 'common/components/Button'
 import FormGroup from 'common/components/FormGroup'
 import FormLabel from 'common/components/FormLabel'
@@ -59,6 +59,15 @@ export const ArticleForm = ({
         <Field
           name='availableIn'
           component={CountrySelect}
+          onBlur={() => onBlur()} />
+      </FormGroup>
+      <FormGroup>
+        <FormLabel>
+          Author
+        </FormLabel>
+        <Field
+          name='author'
+          component={AuthorSelect}
           onBlur={() => onBlur()} />
       </FormGroup>
       <Button
