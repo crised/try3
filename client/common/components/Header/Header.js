@@ -18,6 +18,11 @@ const Header = () => (
           to={Routes.AUTHORS}>
           Authors
         </Link>
+        <Link
+          className={styles.navigationItem}
+          to={Routes.ARTICLES}>
+          Articles
+        </Link>
       </div>
     </Content>
   </div>
