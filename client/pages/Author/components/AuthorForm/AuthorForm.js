@@ -53,15 +53,6 @@ export const AuthorForm = ({
           placeholder='Last Name'
           label='Last Name' />
       </FormGroup>
-      <FormGroup>
-        <FormLabel>
-          Available In
-        </FormLabel>
-        <Field
-          name='availableIn'
-          component={CountrySelect}
-          onBlur={() => onBlur()} />
-      </FormGroup>
       <Button
         primary
         type='submit'>

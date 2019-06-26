@@ -60,7 +60,6 @@ class AuthorContainer extends Component {
     const initialValues = (isEditing && author) ? {
       firstName: author.get('firstName'),
       lastName: author.get('lastName'),
-      availableIn: author.get('availableIn').toArray()
     } : {}
     // console.log('rendering3!!', isEditing, author.get('lastName'), firstName)
 
