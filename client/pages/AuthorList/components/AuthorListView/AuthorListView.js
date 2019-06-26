@@ -1,27 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './ArticleListView.scss'
+import styles from './AuthorListView.scss'
 import { Map } from 'immutable'
-import Article from 'common/components/Article'
+import Author from 'common/components/Author'
 import Button from 'common/components/Button'
 import * as Routes from 'constants/Routes'
 import { Link, formatPattern } from 'react-router'
 import Loader from 'common/components/Loader'
 
-const sortArticles = articles => articles.sort((a, b) => {
+const sortArticles = authors => authors.sort((a, b) => {
   return (new Date(b.get('created')) - new Date(a.get('created')))
 })
 
-const ArticleListView = ({ articles, isLoaded }) => {
-  const sortedArticles = sortArticles(articles)
+const AuthorListView = ({ authors, isLoaded }) => {
+  const sortedAuthors = sortArticles(authors)
 
-  const content = isLoaded ? articles.size === 0 ? (
+  const content = isLoaded ? authors.size === 0 ? (
     <div className={styles.empty}>
-      No articles yet, let's create one first ;)
+      No authors yet, let's create one first ;)
     </div>
-  ) : sortedArticles.valueSeq().map(a => (
-    <Article
-      article={a}
+  ) : sortedAuthors.valueSeq().map(a => (
+    <Author
+      author={a}
       key={a.get('_id')} />
   )) : (
     <div className={styles.loader}>
@@ -32,13 +32,13 @@ const ArticleListView = ({ articles, isLoaded }) => {
   return (
     <div className={styles.component}>
       <h1 className={styles.title}>
-        Articles
+        Authors
       </h1>
       <div className={styles.controls}>
         <Link
-          to={formatPattern(Routes.ARTICLE)}>
+          to={formatPattern(Routes.AUTHOR)}>
           <Button primary>
-            Create a new article
+            Create a new author
           </Button>
         </Link>
       </div>
@@ -47,9 +47,9 @@ const ArticleListView = ({ articles, isLoaded }) => {
   )
 }
 
-ArticleListView.propTypes = {
-  articles: PropTypes.instanceOf(Map).isRequired,
+AuthorListView.propTypes = {
+  authors: PropTypes.instanceOf(Map).isRequired,
   isLoaded: PropTypes.bool.isRequired
 }
 
-export default ArticleListView
+export default AuthorListView

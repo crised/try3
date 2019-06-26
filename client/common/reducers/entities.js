@@ -2,14 +2,14 @@ import { createReducer } from 'utils'
 import { fromJS } from 'immutable'
 
 import {
-  LOAD_ALL_ARTICLES_REQUEST,
-  LOAD_ARTICLE_REQUEST,
-  EDIT_ARTICLE_REQUEST
-} from '../actions/articles'
+  LOAD_ALL_AUTHORS_REQUEST,
+  LOAD_AUTHOR_REQUEST,
+  EDIT_AUTHOR_REQUEST
+} from '../actions/authors'
 
 export const initialState = fromJS({
-  articles: {},
-  isArticlesLoaded: false
+  authors: {},
+  isAuthorsLoaded: false
 })
 
 const mergeEntities = (state, { payload }) => {
@@ -22,9 +22,9 @@ const mergeEntities = (state, { payload }) => {
 }
 
 export default createReducer(initialState, {
-  [LOAD_ALL_ARTICLES_REQUEST.SUCCESS]: (state, action) => {
-    return mergeEntities(state, action).set('isArticlesLoaded', true)
+  [LOAD_ALL_AUTHORS_REQUEST.SUCCESS]: (state, action) => {
+    return mergeEntities(state, action).set('isAuthorsLoaded', true)
   },
-  [LOAD_ARTICLE_REQUEST.SUCCESS]: mergeEntities,
-  [EDIT_ARTICLE_REQUEST.SUCCESS]: mergeEntities
+  [LOAD_AUTHOR_REQUEST.SUCCESS]: mergeEntities,
+  [EDIT_AUTHOR_REQUEST.SUCCESS]: mergeEntities
 })

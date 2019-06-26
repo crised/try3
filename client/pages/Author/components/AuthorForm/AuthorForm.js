@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import { Input, CountrySelect } from 'common/components/FormFields'
+import { Input, CountrySelect } from 'common/components/FormFields' // TODO Change CountrySelect
 import Button from 'common/components/Button'
 import FormGroup from 'common/components/FormGroup'
 import FormLabel from 'common/components/FormLabel'
-import styles from './ArticleForm.scss'
+import styles from './AuthorForm.scss'
 
-export const FORM_ID = 'article'
+export const FORM_ID = 'author'
 
 export const validate = values => {
   const errors = {}
@@ -25,7 +25,7 @@ export const validate = values => {
   return errors
 }
 
-export const ArticleForm = ({
+export const AuthorForm = ({
   handleSubmit,
   isEditing,
   firstName,
@@ -70,7 +70,7 @@ export const ArticleForm = ({
   )
 }
 
-ArticleForm.propTypes = {
+AuthorForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
   firstName: PropTypes.string,
@@ -80,4 +80,4 @@ ArticleForm.propTypes = {
 export default reduxForm({
   form: FORM_ID,
   validate
-})(ArticleForm)
+})(AuthorForm)

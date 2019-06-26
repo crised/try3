@@ -1,35 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './Article.scss'
+import styles from './Author.scss'
 import { Map } from 'immutable'
 import * as Routes from 'constants/Routes'
 import { Link, formatPattern } from 'react-router'
 import moment from 'moment'
 
-const Article = ({ article }) => {
-  const date = moment(article.get('created'))
+const Author = ({ author }) => {
+  const date = moment(author.get('created'))
 
   return (
     <div className={styles.component}>
       <Link
         className={styles.title}
-        to={formatPattern(Routes.ARTICLE, {
-          id: article.get('_id')
+        to={formatPattern(Routes.AUTHOR, {
+          id: author.get('_id')
         })}>
-        {article.get('title')}
+        {author.get('firstName')}
       </Link>
       <div className={styles.date}>
         {date.format('LLLL')}
       </div>
-      <div className={styles.content}>
-        {article.get('content')}
+      <div className={styles.title}>
+        {author.get('LastName')}
       </div>
     </div>
   )
 }
 
-Article.propTypes = {
-  article: PropTypes.instanceOf(Map).isRequired
+Author.propTypes = {
+  author: PropTypes.instanceOf(Map).isRequired
 }
 
-export default Article
+export default Author

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const ArticleSchema = new Schema({
+const AuthorSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -17,16 +17,16 @@ const ArticleSchema = new Schema({
     trim: true
   },
   availableIn: {
-    type: [String],
+    type: [String], // TODO: Remove this
     default: []
   }
 })
 
-ArticleSchema.path('firstName').validate(function (firstName) {
+AuthorSchema.path('firstName').validate(function (firstName) {
   return firstName.length
-}, 'Title cannot be blank')
+}, 'firstName cannot be blank')
 
-ArticleSchema.statics = {
+AuthorSchema.statics = {
   load: function (id, cb) {
     this.findOne({
       _id: id
@@ -34,4 +34,4 @@ ArticleSchema.statics = {
   }
 }
 
-mongoose.model('Article', ArticleSchema)
+mongoose.model('Author', AuthorSchema)

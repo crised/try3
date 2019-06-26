@@ -8,14 +8,14 @@ const Header = () => (
   <div className={styles.component}>
     <Content className={styles.content}>
       <Link
-        to={Routes.ARTICLES}
+        to={Routes.AUTHORS}
         className={styles.logo}>
         Overloop
       </Link>
       <div className={styles.navigation}>
         <Link
           className={styles.navigationItem}
-          to={Routes.ARTICLES}>
+          to={Routes.AUTHORS}>
           Articles
         </Link>
       </div>
