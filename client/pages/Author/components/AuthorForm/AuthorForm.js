@@ -31,6 +31,7 @@ export const AuthorForm = ({
   firstName,
   onBlur
 }) => {
+  console.log('author form!', isEditing)
   return (
     <form
       className={styles.component}

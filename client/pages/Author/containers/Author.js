@@ -24,6 +24,7 @@ class AuthorContainer extends Component {
     const { isEditing, loadAuthor, params } = this.props
 
     if (isEditing) {
+      console.log('is editing', params.id)
       loadAuthor(params.id)
     }
   }
@@ -47,7 +48,10 @@ class AuthorContainer extends Component {
   }
 
   render () {
+    console.log('rendering!!', this.props)
     const { isEditing, author, firstName } = this.props
+    console.log('rendering2!!', isEditing, author, firstName)
+
 
     if (isEditing && !author) {
       return (
@@ -75,6 +79,7 @@ const valueSelector = formValueSelector(FORM_ID)
 
 const mapStateToProps = (state, ownProps) => {
   const isEditing = !!ownProps.params.id
+  console.log('state to props', ownProps.params.id)
 
   return {
     author: getAuthor(ownProps.params.id)(state),

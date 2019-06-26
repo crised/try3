@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Author.scss'
-import { Map } from 'immutable'
+import {Map} from 'immutable'
 import * as Routes from 'constants/Routes'
-import { Link, formatPattern } from 'react-router'
+import {Link, formatPattern} from 'react-router'
 import moment from 'moment'
 
-const Author = ({ author }) => {
+const Author = ({author}) => {
   const date = moment(author.get('created'))
+  console.log('id', author.get('_id'))
 
   return (
     <div className={styles.component}>
@@ -16,13 +17,10 @@ const Author = ({ author }) => {
         to={formatPattern(Routes.AUTHOR, {
           id: author.get('_id')
         })}>
-        {author.get('firstName')}
+        {author.get('firstName') + ' ' + author.get('lastName')}
       </Link>
       <div className={styles.date}>
         {date.format('LLLL')}
-      </div>
-      <div className={styles.title}>
-        {author.get('LastName')}
       </div>
     </div>
   )

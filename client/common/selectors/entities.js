@@ -6,10 +6,10 @@ export const getEntities = (state) => state.entities
 export const getAuthors = state => state.entities.get('authors')
 export const getIsAuthorsLoaded = state => state.entities.get('isAuthorsLoaded')
 
-export const getAuthor = articleId => createSelector(
+export const getAuthor = authorId => createSelector(
   [getAuthors, getEntities],
   (authors, entities) => {
-    const author = authors.get('authorId')
+    const author = authors.get(authorId)
 
     if (!author) {
       return null

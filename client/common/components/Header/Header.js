@@ -16,7 +16,7 @@ const Header = () => (
         <Link
           className={styles.navigationItem}
           to={Routes.AUTHORS}>
-          Articles
+          Authors
         </Link>
       </div>
     </Content>

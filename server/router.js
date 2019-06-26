@@ -3,9 +3,9 @@ function applyRoutes (app) {
   const authors = require('./controllers/authors')
   app.get('/authors', authors.all)
   app.post('/authors', authors.create)
-  app.get('/authors/:authorsId', authors.show)
-  app.put('/authors/:authorsId', authors.update)
-  app.delete('/authors/:authorsId', authors.destroy)
+  app.get('/authors/:authorId', authors.show)
+  app.put('/authors/:authorId', authors.update)
+  app.delete('/authors/:authorId', authors.destroy)
 
   // Countries
   const countries = require('./controllers/countries')
