@@ -7,9 +7,17 @@ import {
   EDIT_AUTHOR_REQUEST
 } from '../actions/authors'
 
+import {
+  LOAD_ALL_ARTICLES_REQUEST,
+  LOAD_ARTICLE_REQUEST,
+  EDIT_ARTICLE_REQUEST
+} from '../actions/articles'
+
 export const initialState = fromJS({
   authors: {},
-  isAuthorsLoaded: false
+  isAuthorsLoaded: false,
+  articles: {},
+  isArticlesLoaded: false
 })
 
 const mergeEntities = (state, { payload }) => {
@@ -26,5 +34,10 @@ export default createReducer(initialState, {
     return mergeEntities(state, action).set('isAuthorsLoaded', true)
   },
   [LOAD_AUTHOR_REQUEST.SUCCESS]: mergeEntities,
-  [EDIT_AUTHOR_REQUEST.SUCCESS]: mergeEntities
+  [EDIT_AUTHOR_REQUEST.SUCCESS]: mergeEntities,
+  [LOAD_ALL_ARTICLES_REQUEST.SUCCESS]: (state, action) => {
+    return mergeEntities(state, action).set('isArticlesLoaded', true)
+  },
+  [LOAD_ARTICLE_REQUEST.SUCCESS]: mergeEntities,
+  [EDIT_ARTICLE_REQUEST.SUCCESS]: mergeEntities
 })
