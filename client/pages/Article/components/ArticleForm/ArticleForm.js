@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import { Input, Textarea, CountrySelect } from 'common/components/FormFields'
+import { Input, CountrySelect } from 'common/components/FormFields'
 import Button from 'common/components/Button'
 import FormGroup from 'common/components/FormGroup'
 import FormLabel from 'common/components/FormLabel'
@@ -12,8 +12,8 @@ export const FORM_ID = 'article'
 export const validate = values => {
   const errors = {}
   const required = [
-    'title',
-    'content'
+    'firstName',
+    'lastName'
   ]
 
   required.forEach(field => {
@@ -28,7 +28,7 @@ export const validate = values => {
 export const ArticleForm = ({
   handleSubmit,
   isEditing,
-  title,
+  firstName,
   onBlur
 }) => {
   return (
@@ -36,21 +36,21 @@ export const ArticleForm = ({
       className={styles.component}
       onSubmit={handleSubmit}>
       <h1>
-        {isEditing ? `Editing ${title}` : `Creating article ${title || ''}`}
+        {isEditing ? `Editing ${firstName}` : `Creating author ${firstName || ''}`}
       </h1>
       <FormGroup>
         <Field
-          name='title'
+          name='firstName'
           component={Input}
-          placeholder='Title'
-          label='Title' />
+          placeholder='First Name'
+          label='First Name' />
       </FormGroup>
       <FormGroup>
         <Field
-          name='content'
-          component={Textarea}
-          placeholder='Content'
-          label='Content' />
+          name='lastName'
+          component={Input}
+          placeholder='Last Name'
+          label='Last Name' />
       </FormGroup>
       <FormGroup>
         <FormLabel>
@@ -64,7 +64,7 @@ export const ArticleForm = ({
       <Button
         primary
         type='submit'>
-        {isEditing ? 'Save' : 'Create'} article
+        {isEditing ? 'Save' : 'Create'} author
       </Button>
     </form>
   )
@@ -73,7 +73,7 @@ export const ArticleForm = ({
 ArticleForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
-  title: PropTypes.string,
+  firstName: PropTypes.string,
   onBlur: PropTypes.func.isRequired
 }
 

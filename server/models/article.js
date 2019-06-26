@@ -6,12 +6,12 @@ const ArticleSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  title: {
+  firstName: {
     type: String,
     default: '',
     trim: true
   },
-  content: {
+  lastName: {
     type: String,
     default: '',
     trim: true
@@ -22,8 +22,8 @@ const ArticleSchema = new Schema({
   }
 })
 
-ArticleSchema.path('title').validate(function (title) {
-  return title.length
+ArticleSchema.path('firstName').validate(function (firstName) {
+  return firstName.length
 }, 'Title cannot be blank')
 
 ArticleSchema.statics = {
